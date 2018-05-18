@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Models\Book;
 use App\Http\Models\Category;
-use App\Http\Transformers\BookTranformer;
+use App\Http\Transformers\BookTransformer;
 use Dingo\Api\Http\Request;
 use Dingo\Api\Routing\Helpers;
 use Mockery\Exception;
@@ -15,7 +15,7 @@ class BookController extends Controller
     public function index () {
         $orm = Book::all();
 
-        return $this->response->collection($orm, new BookTranformer);
+        return $this->response->collection($orm, new BookTransformer);
     }
     public function show ($id) {
         try {
@@ -26,7 +26,7 @@ class BookController extends Controller
             return $e;
         }
         if ( $orm ) {
-            return $this->response->item($orm, new BookTranformer);
+            return $this->response->item($orm, new BookTransformer);
         }
 
         return $this->response->errorNotFound('Data Tcategory_idak Ketemu');
@@ -103,7 +103,7 @@ class BookController extends Controller
                 'tahun_terbit'
             ]);
 
-            $idcat = Category::find($data['kategori']);
+            $idcat = Category::find($data['category_id']);
 
             if($idcat)
             {
