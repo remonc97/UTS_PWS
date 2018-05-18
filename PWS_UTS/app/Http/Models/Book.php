@@ -20,4 +20,8 @@ class Book extends Model
     protected $guarded = [
         'id'
     ];
+    
+     public function Book(){
+         return $this->belongsTo('App\Http\Models\Category', 'category_id');
+     }
 }

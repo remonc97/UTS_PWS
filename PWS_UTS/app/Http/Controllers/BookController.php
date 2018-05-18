@@ -116,7 +116,7 @@ class BookController extends Controller
                     'tahun_terbit' => $data['tahun_terbit'],
                     ]);
                 try{
-                    $update->update();
+                    $update->save();
                 }catch (Exception $e){
                     $this->response->error($e,500);
                 }

@@ -9,6 +9,7 @@ class BookTransformer extends TransformerAbstract
     public function transform(Book $field)
     {
         return[
+            'ID' => $field->id,
             'ID Kategori' => $field->category_id,
             'Judul Buku' => $field->title,
             'ISBN' => $field->isbn,
